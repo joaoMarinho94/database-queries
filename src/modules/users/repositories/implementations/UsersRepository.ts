@@ -22,9 +22,9 @@ export class UsersRepository implements IUsersRepository {
     });
   }
 
-  // async findAllUsersOrderedByFirstName(): Promise<User[]> {
-  //   return this.repository.query(); // Complete usando raw query
-  // }
+  async findAllUsersOrderedByFirstName(): Promise<User[]> {
+    return this.repository.query(`SELECT * FROM USERS ORDER BY first_name ASC`);
+  }
 
   // async findUserByFullName({
   //   first_name,
