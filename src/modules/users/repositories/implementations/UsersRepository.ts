@@ -26,10 +26,10 @@ export class UsersRepository implements IUsersRepository {
     return this.repository.query(`SELECT * FROM USERS ORDER BY first_name ASC`);
   }
 
-  // async findUserByFullName({
-  //   first_name,
-  //   last_name,
-  // }: IFindUserByFullNameDTO): Promise<User[] | undefined> {
-  //   return this.repository.query(); // Complete usando raw query
-  // }
+  async findUserByFullName({
+    first_name,
+    last_name,
+  }: IFindUserByFullNameDTO): Promise<User[] | undefined> {
+    return this.repository.query(`SELECT * FROM USERS WHERE first_name = INITCAP('${first_name}') AND last_name = INITCAP('${last_name}')`);
+  }
 }
