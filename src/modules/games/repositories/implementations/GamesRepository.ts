@@ -18,9 +18,9 @@ export class GamesRepository implements IGamesRepository {
       .getMany();
   }
 
-  // async countAllGames(): Promise<[{ count: string }]> {
-  //   return this.repository.query(); // Complete usando raw query
-  // }
+  async countAllGames(): Promise<[{ count: string }]> {
+    return this.repository.query(`SELECT COUNT(*) FROM games`);
+  }
 
   // async findUsersByGameId(id: string): Promise<User[]> {
   //   return this.repository
